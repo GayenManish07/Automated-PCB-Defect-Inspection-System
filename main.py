@@ -14,7 +14,7 @@ from torchvision import transforms as T
 # arguments
 def get_args():
     parser = argparse.ArgumentParser(description="PCB Defect Detection Final")
-    parser.add_argument('--data_root', type=str, default='/home/manish/thesis/computer_vision/DeepPCB/PCBData', help='Path to PCBData')
+    parser.add_argument('--data_root', type=str, default='path to data directory', help='Path to PCBData')
     parser.add_argument('--epochs', type=int, default=100)
     parser.add_argument('--batch_size', type=int, default=32)
     parser.add_argument('--lr', type=float, default=0.001)
@@ -23,15 +23,11 @@ def get_args():
     return parser.parse_args()
 
 # class configuration
-CLASSES = {
-    0: 'Background', 1: 'open', 2: 'short', 3: 'mousebite', 
-    4: 'spur', 5: 'copper', 6: 'pin-hole'
-}
-SEVERITY_MAP = {
-    'open': 'CRITICAL', 'short': 'CRITICAL', 
+CLASSES = {0: 'Background', 1: 'open', 2: 'short', 3: 'mousebite', 4: 'spur', 5: 'copper', 6: 'pin-hole'}
+SEVERITY_MAP = {'open': 'CRITICAL', 'short': 'CRITICAL', 
     'mousebite': 'MAJOR', 'spur': 'MAJOR', 
-    'copper': 'MINOR', 'pin-hole': 'MINOR'
-}
+    'copper': 'MINOR', 'pin-hole': 'MINOR'}
+
 DEVICE = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 
 # transformation for augmentations
@@ -239,7 +235,7 @@ def main():
         writer.writerow(['Image Name', 'Defect Type', 'Confidence', 'Severity', 'Centroid X', 'Centroid Y'])
     
     # dataset
-    full_ds = DeepPCBDataset(args.data_root, transform=get_transform(True))
+    full_ds = DeepPCBDataset(args.data_root, transform=get_transform(train=args.use_aug))
     indices = torch.randperm(len(full_ds)).tolist()
     split = int(0.8 * len(full_ds))
     train_ds = torch.utils.data.Subset(full_ds, indices[:split])

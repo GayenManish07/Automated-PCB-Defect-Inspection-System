@@ -5,18 +5,39 @@ This repository contains a Computer Vision prototype for **Automated Optical Ins
 
 Using the **Faster R-CNN** architecture (ResNet50 backbone), the system analyzes "Test" (defective) images against their "Template" (clean) counterparts. It outputs a comprehensive inspection report that includes bounding boxes, confidence scores, defect severity levels, and precise centroid coordinates for robotic actuation.
 
-![General Inspection Output](output_comparison/sample_1.jpg)
+## Some sample outputs
+
+### Without Augmentation during Training
+Some results without using augmentation in training stage:
+
+![Sample 1](Assets/Without Augmentation/sample_3.jpg)
+*(Figure 1: Example output showing side-by-side analysis with defect localization)*
+![Sample 2]Assets/Without Augmentation/sample_9.jpg)
+*(Figure 1: Example output showing side-by-side analysis with defect localization)*
+![Sample 3](Assets/Without Augmentation/sample_2.jpg)
 *(Figure 1: Example output showing side-by-side analysis with defect localization)*
 
+### With Augmentation during Training
+Some results after using augmentation in training stage:
+
+![Sample 1](Assets/With Augmentation/sample_3.jpg)
+*(Figure 1: Example output showing side-by-side analysis with defect localization)*
+![Sample 2]Assets/With Augmentation/sample_9.jpg)
+*(Figure 1: Example output showing side-by-side analysis with defect localization)*
+![Sample 3](Assets/With Augmentation/sample_2.jpg)
+*(Figure 1: Example output showing side-by-side analysis with defect localization)*
+
+
 ## Key Features
+
+The key features of the framework are as follows:
+
 * **Defect Detection:** Identifies 6 standard PCB defect types: `open`, `short`, `mousebite`, `spur`, `copper`, `pin-hole`.
 * **Severity Assessment:** Automatically maps defects to industry-standard action levels:
     * [CRITICAL] Open, Short (Functional failure)
     * [MAJOR] Mousebite, Spur (Structural weakness)
     * [MINOR] Copper, Pin-hole (Cosmetic)
-* **Precision Localization:** Calculates and outputs (x, y) centroid coordinates for every defect.
-* **Side-by-Side Comparison:** Generates visual reports comparing the "Undamaged" reference against the "Damaged" sample.
-* **Data Logging:** Automatically exports all inspection data to `inspection_results.csv` for audit trails.
+* **Precision Localization:** Calculates and outputs (x, y) centroid coordinates for every defect which can then be used as per requirement.
 
 ## Dataset
 This project uses the **[DeepPCB Dataset](https://github.com/tangsanli5201/DeepPCB)**.
@@ -27,8 +48,8 @@ This project uses the **[DeepPCB Dataset](https://github.com/tangsanli5201/DeepP
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/pcb-defect-detection.git](https://github.com/your-username/pcb-defect-detection.git)
-    cd pcb-defect-detection
+    git clone https://github.com/GayenManish07/Automated-PCB-Defect-Inspection-System.git
+    cd Automated-PCB-Defect-Inspection-System
     ```
 
 2.  **Install dependencies:**
@@ -52,4 +73,4 @@ This project uses the **[DeepPCB Dataset](https://github.com/tangsanli5201/DeepP
 Run the main training and inspection script. You can enable or disable data augmentation using the command line arguments.
 
 ```bash
-python task2_final.py --data_root /path/to/PCBData --epochs 10 --batch_size 4 --use_aug
+python main.py --data_root /path/to/PCBData --epochs 10 --batch_size 4 --use_aug

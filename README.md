@@ -10,23 +10,26 @@ Using the **Faster R-CNN** architecture (ResNet50 backbone), the system analyzes
 ### Without Augmentation during Training
 Some results without using augmentation in training stage:
 
-![Sample 1](Assets/Without Augmentation/sample_3.jpg)
-*(Figure 1: Example output showing side-by-side analysis with defect localization)*
-![Sample 2]Assets/Without Augmentation/sample_9.jpg)
-*(Figure 1: Example output showing side-by-side analysis with defect localization)*
-![Sample 3](Assets/Without Augmentation/sample_2.jpg)
-*(Figure 1: Example output showing side-by-side analysis with defect localization)*
+![Sample 1](Assets/Without%20Augmentation/sample_3.jpg)
+*(Figure 1: Sample 1 - Side-by-side analysis without augmentation)*
+
+![Sample 2](Assets/Without%20Augmentation/sample_9.jpg)
+*(Figure 2: Sample 2 - Side-by-side analysis without augmentation)*
+
+![Sample 3](Assets/Without%20Augmentation/sample_2.jpg)
+*(Figure 3: Sample 3 - Side-by-side analysis without augmentation)*
 
 ### With Augmentation during Training
 Some results after using augmentation in training stage:
 
-![Sample 1](Assets/With Augmentation/sample_3.jpg)
-*(Figure 1: Example output showing side-by-side analysis with defect localization)*
-![Sample 2]Assets/With Augmentation/sample_9.jpg)
-*(Figure 1: Example output showing side-by-side analysis with defect localization)*
-![Sample 3](Assets/With Augmentation/sample_2.jpg)
-*(Figure 1: Example output showing side-by-side analysis with defect localization)*
+![Sample 1](Assets/With%20Augmentation/sample_3.jpg)
+*(Figure 4: Sample 1 - Side-by-side analysis WITH augmentation)*
 
+![Sample 2](Assets/With%20Augmentation/sample_9.jpg)
+*(Figure 5: Sample 2 - Side-by-side analysis WITH augmentation)*
+
+![Sample 3](Assets/With%20Augmentation/sample_2.jpg)
+*(Figure 6: Sample 3 - Side-by-side analysis WITH augmentation)*
 
 ## Key Features
 

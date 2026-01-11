@@ -57,7 +57,7 @@ This project uses the **[DeepPCB Dataset](https://github.com/tangsanli5201/DeepP
 
 2.  **Install dependencies:**
     ```bash
-    pip install torch torchvision opencv-python matplotlib pillow
+    pip install -r requirements.txt
     ```
 
 3.  **Setup Data:**
